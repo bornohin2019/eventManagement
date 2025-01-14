@@ -7,7 +7,7 @@ if (isset($_POST['register'])) {
     $contact = $_POST['contact'];
     $password = $_POST['password'];
 
-    $sql = "INSERT INTO `user`(`name`,`email`,`password`,`roleid`) VALUES ('$name','$email','$password','$contact','2')";
+    $sql = "INSERT INTO `user`(`name`,`email`,`contact`,`password`,`roleid`) VALUES ('$name','$email','$contact','$password','2')";
 
     if (mysqli_query($connect, $sql)) {
         echo "User registered successfully!";
