@@ -14,7 +14,7 @@ $result = mysqli_query($conn, $sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Available Events</title>
-   
+
     <style>
         .event-card {
             border: 1px solid #ddd;
@@ -58,33 +58,34 @@ $result = mysqli_query($conn, $sql);
     <div class="container mt-4">
         <h3 class="text-center mb-4">Available Events</h3>
         <?php
-            if(isset($_SESSION['success'])){
-                echo $_SESSION['success'];
-                unset($_SESSION['success']);
-            }
-            if(isset($_SESSION['error'])){
-                echo $_SESSION['error'];
-                unset($_SESSION['error']);
-            }
+        if (isset($_SESSION['success'])) {
+            echo $_SESSION['success'];
+            unset($_SESSION['success']);
+        }
+        if (isset($_SESSION['error'])) {
+            echo $_SESSION['error'];
+            unset($_SESSION['error']);
+        }
         ?>
         <div class="row">
             <?php
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     $event_image = 'admin/uploads/' . $row['event_image']; // Assuming the event images are stored in the 'uploads' folder
-                    ?>
+            ?>
                     <div class="col-md-4 mb-4">
                         <div class="card event-card">
                             <img src="<?php echo $event_image; ?>" alt="Event Image">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $row['event_title']; ?></h5>
                                 <p class="card-text"><?php echo substr($row['event_description'], 0, 100) . '...'; ?></p>
+                                <p class="text-muted">Price: $<?php echo number_format($row['price'], 2); ?></p>
                                 <p class="text-muted"><?php echo $row['event_location']; ?> | <?php echo $row['event_date']; ?> at <?php echo $row['event_time']; ?></p>
                                 <a href="book-event.php?id=<?php echo $row['id']; ?>" class="btn btn-book">Book Now</a>
                             </div>
                         </div>
                     </div>
-                    <?php
+            <?php
                 }
             } else {
                 echo "<div class='col-12 text-center'><p>No events found</p></div>";

@@ -1,16 +1,16 @@
 <?php
-    include('connect.php');
-    include('header.php');
+include('connect.php');
+include('header.php');
 
-    
-    ?>
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>event management system</title>
 </head>
 
 <body>
@@ -26,7 +26,7 @@
             <p><span>New Events</span> <span class="description-title"></span></p>
         </div><!-- End Section Title -->
 
-<div class="container">
+        <div class="container">
 
             <div class="row gy-4">
 
@@ -39,6 +39,7 @@
                         <div class="member-info">
                             <h4>Ashes Band</h4>
                             <p>The band Ashes is known for its unique style and powerful lyrics that resonate deeply with fans, making them a standout act in the music scene.</p>
+                            <a href="register.php"><button>Book Now</button></a>
                         </div>
                     </div>
                 </div>
@@ -51,6 +52,7 @@
                         <div class="member-info">
                             <h4>Era Convention Hall</h4>
                             <p>Welcome to Era Convention Hall, the perfect venue for your special events, conferences, and gatherings.</p>
+                            <a href="register.php"><button>Book Now</button></a>
                         </div>
                     </div>
                 </div>
@@ -63,6 +65,7 @@
                         <div class="member-info">
                             <h4>Cricket Tournament Booking</h4>
                             <p>Welcome to Cricket Tournament, where the thrill of cricket meets the excitement of competition! Whether you are a player, a team manager, or a passionate fan, this event offers an unforgettable experience filled with action-packed matches and unforgettable moments.</p>
+                            <a href="register.php"><button>Book Now</button></a>
                         </div>
                     </div>
                 </div>
@@ -75,6 +78,7 @@
                         <div class="member-info">
                             <h4>Football Tournament Booking</h4>
                             <p>Join us at the Football Tournament for an action-packed sporting experience! Whether you're a player or a fan, this tournament promises high-energy matches and a competitive atmosphere.</p>
+                            <a href="register.php"><button>Book Now</button></a>
                         </div>
                     </div>
                 </div>
@@ -82,10 +86,10 @@
             </div>
         </div>
 
-    </section>
-    <?php
-    include('footer.php');
-    ?>
+        </section>
+        <?php
+        include('footer.php');
+        ?>
 </body>
 
 </html>
