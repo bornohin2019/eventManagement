@@ -5,13 +5,14 @@ include('connect.php');
 include('header.php');
 
 // Fetch the booking details along with the user name and event title
-$sql = "SELECT b.id, u.name AS user_name,u.contact AS user_contact, e.event_title, e.event_date, e.event_time, b.booked_at, b.status
+$sql = "SELECT b.id AS booking_id, u.name AS user_name, u.contact AS user_contact, e.event_title, e.event_date, e.event_time, b.booked_at, b.status
         FROM bookings b
         JOIN user u ON b.user_id = u.userid
         JOIN events e ON b.event_id = e.id
         ORDER BY b.booked_at DESC";
 
-$result = mysqli_query($conn, $sql);
+
+$result = mysqli_query($connect, $sql);
 
 // Handle actions based on the GET parameter
 if (isset($_GET['action']) && isset($_GET['id'])) {
@@ -85,27 +86,28 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
                     while ($row = mysqli_fetch_assoc($result)) {
                         $status = $row['status'] ? $row['status'] : 'Pending';
                         echo "
-                        <tr>
-                            <td>{$row['id']}</td>
-                            <td>{$row['user_name']}</td>
-                             <td>{$row['user_contact']}</td>
-                            <td>{$row['event_title']}</td>
-                            <td>{$row['event_date']}</td>
-                            <td>{$row['event_time']}</td>
-                            <td>{$row['booked_at']}</td>
-                            <td>{$status}</td>
-                            <td>
-                                <a href='booking-list.php?action=confirm&id={$row['id']}' class='btn btn-success btn-sm' onclick='return confirm(\"Are you sure you want to confirm this booking?\")'>Confirm</a>
-                                <a href='booking-list.php?action=cancel&id={$row['id']}' class='btn btn-warning btn-sm' onclick='return confirm(\"Are you sure you want to cancel this booking?\")'>Cancel</a>
-                                <a href='booking-list.php?action=delete&id={$row['id']}' class='btn btn-danger btn-sm' onclick='return confirm(\"Are you sure you want to delete this booking?\")'>Delete</a>
-                            </td>
-                        </tr>";
+            <tr>
+                <td>{$row['booking_id']}</td> <!-- এখানে id-এর পরিবর্তে booking_id ব্যবহার করা হয়েছে -->
+                <td>{$row['user_name']}</td>
+                <td>{$row['user_contact']}</td>
+                <td>{$row['event_title']}</td>
+                <td>{$row['event_date']}</td>
+                <td>{$row['event_time']}</td>
+                <td>{$row['booked_at']}</td>
+                <td>{$status}</td>
+                <td>
+                    <a href='booking-list.php?action=confirm&id={$row['booking_id']}' class='btn btn-success btn-sm' onclick='return confirm(\"Are you sure you want to confirm this booking?\")'>Confirm</a>
+                    <a href='booking-list.php?action=cancel&id={$row['booking_id']}' class='btn btn-warning btn-sm' onclick='return confirm(\"Are you sure you want to cancel this booking?\")'>Cancel</a>
+                    <a href='booking-list.php?action=delete&id={$row['booking_id']}' class='btn btn-danger btn-sm' onclick='return confirm(\"Are you sure you want to delete this booking?\")'>Delete</a>
+                </td>
+            </tr>";
                     }
                 } else {
                     echo "<tr><td colspan='8' class='text-center'>No bookings found</td></tr>";
                 }
                 ?>
             </tbody>
+
         </table>
     </div>
 

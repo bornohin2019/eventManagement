@@ -1,11 +1,20 @@
 <?php
 include('connect.php');
+
+if (!isset($_SESSION['uid'])) {
+    die("User not logged in!");
+}
+
 $user_id = $_SESSION['uid'];  // Get the current user's ID from session
 $event_id = $_GET['id'];      // Get the event ID from the URL
 
 // Check if the user has already booked this event
 $checkBookingSql = "SELECT * FROM bookings WHERE user_id = '$user_id' AND event_id = '$event_id'";
 $checkResult = mysqli_query($conn, $checkBookingSql);
+
+if (!$checkResult) {
+    die("Query failed: " . mysqli_error($conn));  // For debugging
+}
 
 if (mysqli_num_rows($checkResult) > 0) {
     // The user has already booked this event
@@ -25,4 +34,3 @@ if (mysqli_num_rows($checkResult) > 0) {
         exit;
     }
 }
-?>

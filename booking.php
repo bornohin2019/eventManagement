@@ -3,7 +3,7 @@ include('connect.php');
 include('header.php');
 
 // Fetch all events
-$sql = "SELECT id, event_title, event_date, event_time, event_location, event_description, event_image FROM events WHERE 1";
+$sql = "SELECT id, event_title, event_date, event_time, event_location, event_description, price, event_image FROM events WHERE 1";
 $result = mysqli_query($conn, $sql);
 ?>
 
