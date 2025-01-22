@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2025 at 06:52 PM
+-- Generation Time: Jan 22, 2025 at 08:07 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -31,18 +31,19 @@ CREATE TABLE `bookings` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `event_id` int(11) NOT NULL,
-  `booking_date` timestamp NOT NULL DEFAULT current_timestamp()
+  `booking_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `status` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `bookings`
 --
 
-INSERT INTO `bookings` (`id`, `user_id`, `event_id`, `booking_date`) VALUES
-(1, 3, 7, '2025-01-18 18:07:09'),
-(2, 3, 6, '2025-01-21 14:33:20'),
-(3, 3, 5, '2025-01-21 15:48:58'),
-(4, 3, 8, '2025-01-21 15:58:49');
+INSERT INTO `bookings` (`id`, `user_id`, `event_id`, `booking_date`, `status`) VALUES
+(1, 3, 7, '2025-01-18 18:07:09', 'pending'),
+(2, 3, 6, '2025-01-21 14:33:20', 'pending'),
+(3, 3, 5, '2025-01-21 15:48:58', 'pending'),
+(4, 3, 8, '2025-01-21 15:58:49', 'pending');
 
 -- --------------------------------------------------------
 
@@ -120,8 +121,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`userid`, `name`, `contact`, `email`, `password`, `roleid`) VALUES
 (1, 'admin', '0177', 'admin@gmail.com', '123', 1),
 (2, 'isha', '01233435', 'isha@gmail.com', '123', 2),
-(3, 'Galib Hasan Megh', '', 'galib@gmail.com', '123', 2),
-(4, 'Md. Rabbani Mia', '', 'rabbani@gmail.com', '123', 2),
+(3, 'Galib Hasan Megh', '13644654654131', 'galib@gmail.com', '123', 2),
+(4, 'Md. Rabbani Mia', '12457935425', 'rabbani@gmail.com', '123', 2),
 (5, 'Rakib', '01766661222', 'rakib@gmail.com', '123', 2),
 (6, 'Badhon', '017852852852', 'badhon@gmail.com', '123', 2);
 

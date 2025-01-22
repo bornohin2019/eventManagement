@@ -5,11 +5,11 @@ include('connect.php');
 include('header.php');
 
 // Fetch the booking details along with the user name and event title
-$sql = "SELECT b.id, u.name AS user_name,u.contact AS user_contact, e.event_title, e.event_date, e.event_time, b.booked_at, b.status
-        FROM bookings b
-        JOIN user u ON b.user_id = u.userid
-        JOIN events e ON b.event_id = e.id
-        ORDER BY b.booked_at DESC";
+$sql = "SELECT bookings.id, user.name AS user_name, user.contact AS user_contact, events.event_title, events.event_date, events.price, events.event_time, bookings.booking_date, bookings.status
+        FROM bookings 
+        JOIN user ON bookings.user_id = user.userid
+        JOIN events ON bookings.event_id = events.id
+        ORDER BY bookings.booking_date DESC";
 
 $result = mysqli_query($conn, $sql);
 
@@ -74,7 +74,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
                     <th>Event Title</th>
                     <th>Event Date</th>
                     <th>Event Time</th>
-                    <th>Booked At</th>
+                    <th>Event Price</th>
                     <th>Status</th>
                     <th>Actions</th>
                 </tr>
@@ -92,7 +92,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
                             <td>{$row['event_title']}</td>
                             <td>{$row['event_date']}</td>
                             <td>{$row['event_time']}</td>
-                            <td>{$row['booked_at']}</td>
+                            <td>{$row['price']}</td>
                             <td>{$status}</td>
                             <td>
                                 <a href='booking-list.php?action=cancel&id={$row['id']}' class='btn btn-warning btn-sm' onclick='return confirm(\"Are you sure you want to cancel this booking?\")'>Cancel</a>

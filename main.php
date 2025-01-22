@@ -1,7 +1,7 @@
 <?php
 include('connect.php');
 include('header.php');
-
+$user_id = isset($_SESSION['uid']) ? $_SESSION['uid'] : null;
 
 ?>
 <!DOCTYPE html>
@@ -39,7 +39,12 @@ include('header.php');
                         <div class="member-info">
                             <h4>Ashes Band</h4>
                             <p>The band Ashes is known for its unique style and powerful lyrics that resonate deeply with fans, making them a standout act in the music scene.</p>
-                            <a href="register.php"><button>Book Now</button></a>
+                           <?php 
+                                if(!$user_id) {
+                                    // Show button only if user is not logged in
+                                    echo '<a href="register.php"><button>Book Now</button></a>';
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -52,7 +57,12 @@ include('header.php');
                         <div class="member-info">
                             <h4>Era Convention Hall</h4>
                             <p>Welcome to Era Convention Hall, the perfect venue for your special events, conferences, and gatherings.</p>
-                            <a href="register.php"><button>Book Now</button></a>
+                            <?php 
+                                if(!$user_id) {
+                                    // Show button only if user is not logged in
+                                    echo '<a href="register.php"><button>Book Now</button></a>';
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -65,7 +75,12 @@ include('header.php');
                         <div class="member-info">
                             <h4>Cricket Tournament Booking</h4>
                             <p>Welcome to Cricket Tournament, where the thrill of cricket meets the excitement of competition! Whether you are a player, a team manager, or a passionate fan, this event offers an unforgettable experience filled with action-packed matches and unforgettable moments.</p>
-                            <a href="register.php"><button>Book Now</button></a>
+                            <?php 
+                                if(!$user_id) {
+                                    // Show button only if user is not logged in
+                                    echo '<a href="register.php"><button>Book Now</button></a>';
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -77,11 +92,17 @@ include('header.php');
                         </div>
                         <div class="member-info">
                             <h4>Football Tournament Booking</h4>
-                            <p>Join us at the Football Tournament for an action-packed sporting experience! Whether you're a player or a fan, this tournament promises high-energy matches and a competitive atmosphere.</p>
-                            <a href="register.php"><button>Book Now</button></a>
+                            <p>Join us at the Football Tournament for an action-packed sporting experience! Whether you are a player or a fan, this tournament promises high-energy matches and a competitive atmosphere.</p>
+                            <?php 
+                                if(!$user_id) {
+                                    // Show button only if user is not logged in
+                                    echo '<a href="register.php"><button>Book Now</button></a>';
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>
+
 
             </div>
         </div>
