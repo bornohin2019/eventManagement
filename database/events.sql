@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2025 at 08:07 AM
+-- Generation Time: Jan 23, 2025 at 07:52 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,10 +40,7 @@ CREATE TABLE `bookings` (
 --
 
 INSERT INTO `bookings` (`id`, `user_id`, `event_id`, `booking_date`, `status`) VALUES
-(1, 3, 7, '2025-01-18 18:07:09', 'pending'),
-(2, 3, 6, '2025-01-21 14:33:20', 'pending'),
-(3, 3, 5, '2025-01-21 15:48:58', 'pending'),
-(4, 3, 8, '2025-01-21 15:58:49', 'pending');
+(5, 3, 7, '2025-01-23 05:03:44', 'Confirmed');
 
 -- --------------------------------------------------------
 
@@ -98,6 +95,15 @@ CREATE TABLE `payment` (
   `eventid` int(11) NOT NULL,
   `userid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`id`, `amount`, `eventid`, `userid`) VALUES
+(14, 1350, 7, 3),
+(15, 1350, 7, 3),
+(16, 1350, 7, 3);
 
 -- --------------------------------------------------------
 
@@ -187,7 +193,7 @@ ALTER TABLE `venue`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `events`
@@ -205,7 +211,7 @@ ALTER TABLE `package`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `user`
