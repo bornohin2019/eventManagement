@@ -1,4 +1,5 @@
 <?php
+
 ob_start();
 ob_clean();
 include('connect.php');
@@ -59,7 +60,8 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
         } else {
             echo "Error: " . mysqli_error($conn);
         }
-    } elseif ($action == 'delete') {
+    }
+     elseif ($action == 'delete') {
         // Delete the booking
         $sql = "DELETE FROM bookings WHERE id = '$booking_id'";
         if (mysqli_query($conn, $sql)) {
@@ -70,6 +72,29 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
         }
     }
 }
+// $sql = "SELECT 
+//             COUNT(b.id) AS total_tickets_sold, 
+//             SUM(e.price) AS total_revenue
+//         FROM 
+//             bookings b
+//         JOIN 
+//             events e ON b.event_id = e.id
+//         WHERE 
+//             b.status = 'Confirmed'";
+
+// $result = mysqli_query($conn, $sql);
+
+// if ($result && mysqli_num_rows($result) > 0) {
+//     $row = mysqli_fetch_assoc($result);
+//     $total_tickets_sold = $row['total_tickets_sold'];
+//     $total_revenue = $row['total_revenue'];
+
+//     echo "<p>Total Tickets Sold: $total_tickets_sold</p>";
+//     echo "<p>Total Revenue: $total_revenue</p>";
+// } else {
+//     echo "<p>No confirmed bookings found.</p>";
+// }
+
 
 ?>
 

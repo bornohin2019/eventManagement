@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2025 at 07:52 AM
+-- Generation Time: Jan 27, 2025 at 08:41 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,7 +40,11 @@ CREATE TABLE `bookings` (
 --
 
 INSERT INTO `bookings` (`id`, `user_id`, `event_id`, `booking_date`, `status`) VALUES
-(5, 3, 7, '2025-01-23 05:03:44', 'Confirmed');
+(8, 3, 5, '2025-01-27 03:27:01', 'Confirmed'),
+(10, 7, 6, '2025-01-27 07:12:59', 'Confirmed'),
+(13, 7, 7, '2025-01-27 07:34:48', 'Cancelled'),
+(14, 7, 5, '2025-01-27 07:34:50', NULL),
+(15, 7, 8, '2025-01-27 07:34:54', 'Confirmed');
 
 -- --------------------------------------------------------
 
@@ -103,7 +107,15 @@ CREATE TABLE `payment` (
 INSERT INTO `payment` (`id`, `amount`, `eventid`, `userid`) VALUES
 (14, 1350, 7, 3),
 (15, 1350, 7, 3),
-(16, 1350, 7, 3);
+(16, 1350, 7, 3),
+(17, 700, 5, 3),
+(18, 1200, 8, 3),
+(19, 700, 5, 3),
+(20, 900, 6, 3),
+(21, 1200, 8, 7),
+(22, 1350, 7, 7),
+(23, 900, 6, 7),
+(24, 1200, 8, 7);
 
 -- --------------------------------------------------------
 
@@ -130,7 +142,8 @@ INSERT INTO `user` (`userid`, `name`, `contact`, `email`, `password`, `roleid`) 
 (3, 'Galib Hasan Megh', '13644654654131', 'galib@gmail.com', '123', 2),
 (4, 'Md. Rabbani Mia', '12457935425', 'rabbani@gmail.com', '123', 2),
 (5, 'Rakib', '01766661222', 'rakib@gmail.com', '123', 2),
-(6, 'Badhon', '017852852852', 'badhon@gmail.com', '123', 2);
+(6, 'Badhon', '017852852852', 'badhon@gmail.com', '123', 2),
+(7, 'Galib Hasan', '0185252523', 'g@gmail.com', '123', 2);
 
 -- --------------------------------------------------------
 
@@ -193,7 +206,7 @@ ALTER TABLE `venue`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `events`
@@ -211,13 +224,13 @@ ALTER TABLE `package`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `venue`

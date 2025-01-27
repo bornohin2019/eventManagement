@@ -37,6 +37,7 @@
           <li><a href="booking-list.php">Booking List</a></li>
 
           <li><a href="booking.php">Booking</a></li>
+           <li><a href="revenue.php">Revenue</a></li>
           <li><a href="logout.php">Logout</a></li>
 
 

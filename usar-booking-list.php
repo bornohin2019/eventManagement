@@ -23,7 +23,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
         // Confirm the booking
         $sql = "UPDATE bookings SET status = 'Confirmed' WHERE id = '$booking_id'";
         if (mysqli_query($conn, $sql)) {
-            header("Location: booking-list.php");
+            header("Location: usar-booking-list.php");
             exit;
         } else {
             echo "Error: " . mysqli_error($conn);
@@ -32,7 +32,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
         // Cancel the booking
         $sql = "UPDATE bookings SET status = 'Cancelled' WHERE id = '$booking_id'";
         if (mysqli_query($conn, $sql)) {
-            header("Location: booking-list.php");
+            header("Location: usar-booking-list.php");
             exit;
         } else {
             echo "Error: " . mysqli_error($conn);
@@ -41,7 +41,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
         // Delete the booking
         $sql = "DELETE FROM bookings WHERE id = '$booking_id'";
         if (mysqli_query($conn, $sql)) {
-            header("Location: booking-list.php");
+            header("Location: usar-booking-list.php");
             exit;
         } else {
             echo "Error: " . mysqli_error($conn);
@@ -95,7 +95,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
                             <td>{$row['price']}</td>
                             <td>{$status}</td>
                             <td>
-                                <a href='booking-list.php?action=cancel&id={$row['id']}' class='btn btn-warning btn-sm' onclick='return confirm(\"Are you sure you want to cancel this booking?\")'>Cancel</a>
+                                <a href='usar-booking-list.php?action=cancel&id={$row['id']}' class='btn btn-warning btn-sm' onclick='return confirm(\"Are you sure you want to cancel this booking?\")'>Cancel</a>
                             </td>
                         </tr>";
                     }
