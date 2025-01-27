@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2025 at 08:41 AM
+-- Generation Time: Jan 27, 2025 at 09:01 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,11 +40,15 @@ CREATE TABLE `bookings` (
 --
 
 INSERT INTO `bookings` (`id`, `user_id`, `event_id`, `booking_date`, `status`) VALUES
-(8, 3, 5, '2025-01-27 03:27:01', 'Confirmed'),
-(10, 7, 6, '2025-01-27 07:12:59', 'Confirmed'),
-(13, 7, 7, '2025-01-27 07:34:48', 'Cancelled'),
-(14, 7, 5, '2025-01-27 07:34:50', NULL),
-(15, 7, 8, '2025-01-27 07:34:54', 'Confirmed');
+(8, 3, 5, '2025-01-27 03:27:01', 'Cancelled'),
+(10, 7, 6, '2025-01-27 07:12:59', 'Cancelled'),
+(13, 7, 7, '2025-01-27 07:34:48', 'Confirmed'),
+(14, 7, 5, '2025-01-27 07:34:50', 'Confirmed'),
+(15, 7, 8, '2025-01-27 07:34:54', 'Confirmed'),
+(16, 2, 6, '2025-01-27 13:47:14', 'Confirmed'),
+(17, 6, 7, '2025-01-27 13:48:07', 'Cancelled'),
+(18, 8, 5, '2025-01-27 16:32:47', NULL),
+(19, 8, 6, '2025-01-27 16:32:49', 'Confirmed');
 
 -- --------------------------------------------------------
 
@@ -115,7 +119,12 @@ INSERT INTO `payment` (`id`, `amount`, `eventid`, `userid`) VALUES
 (21, 1200, 8, 7),
 (22, 1350, 7, 7),
 (23, 900, 6, 7),
-(24, 1200, 8, 7);
+(24, 1200, 8, 7),
+(25, 700, 5, 7),
+(26, 1350, 7, 7),
+(27, 900, 6, 2),
+(28, 1350, 7, 6),
+(29, 900, 6, 8);
 
 -- --------------------------------------------------------
 
@@ -143,7 +152,8 @@ INSERT INTO `user` (`userid`, `name`, `contact`, `email`, `password`, `roleid`) 
 (4, 'Md. Rabbani Mia', '12457935425', 'rabbani@gmail.com', '123', 2),
 (5, 'Rakib', '01766661222', 'rakib@gmail.com', '123', 2),
 (6, 'Badhon', '017852852852', 'badhon@gmail.com', '123', 2),
-(7, 'Galib Hasan', '0185252523', 'g@gmail.com', '123', 2);
+(7, 'Galib Hasan', '0185252523', 'g@gmail.com', '123', 2),
+(8, 'bornohin', '01985852858', 'b@gmail.com', '123', 2);
 
 -- --------------------------------------------------------
 
@@ -206,7 +216,7 @@ ALTER TABLE `venue`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `events`
@@ -224,13 +234,13 @@ ALTER TABLE `package`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `venue`
