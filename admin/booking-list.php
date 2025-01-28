@@ -72,29 +72,6 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
         }
     }
 }
-// $sql = "SELECT 
-//             COUNT(b.id) AS total_tickets_sold, 
-//             SUM(e.price) AS total_revenue
-//         FROM 
-//             bookings b
-//         JOIN 
-//             events e ON b.event_id = e.id
-//         WHERE 
-//             b.status = 'Confirmed'";
-
-// $result = mysqli_query($conn, $sql);
-
-// if ($result && mysqli_num_rows($result) > 0) {
-//     $row = mysqli_fetch_assoc($result);
-//     $total_tickets_sold = $row['total_tickets_sold'];
-//     $total_revenue = $row['total_revenue'];
-
-//     echo "<p>Total Tickets Sold: $total_tickets_sold</p>";
-//     echo "<p>Total Revenue: $total_revenue</p>";
-// } else {
-//     echo "<p>No confirmed bookings found.</p>";
-// }
-
 
 ?>
 
@@ -134,7 +111,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
                         $status = $row['status'] ? $row['status'] : 'Pending';
                         echo "
                         <tr>
-                            <td>{$row['booking_id']}</td> <!-- এখানে id-এর পরিবর্তে booking_id ব্যবহার করা হয়েছে -->
+                            <td>{$row['booking_id']}</td>
                             <td>{$row['user_name']}</td>
                             <td>{$row['user_contact']}</td>
                             <td>{$row['event_title']}</td>

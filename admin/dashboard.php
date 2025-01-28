@@ -1,90 +1,57 @@
-<?php
-    include('connect.php');
-    include('header.php');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Management</title>
+    <title>Revenue Report</title>
+    <!-- Include Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-
 <body>
 
-    <section id="team" class="team section light-background">
+<?php
+// Include database connection
+include('connect.php');
+include('header.php');
 
-        <!-- Section Title -->
-        <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-            <br>
-            <h2>Latest Events</h2>
-        </div><!-- End Section Title -->
+// SQL query to fetch total tickets sold and revenue
+$stats_sql = "SELECT 
+                COUNT(b.id) AS total_tickets_sold, 
+                SUM(e.price) AS total_revenue
+            FROM 
+                bookings b
+            JOIN 
+                events e ON b.event_id = e.id
+            WHERE 
+                b.status = 'Confirmed'";
 
-        <div class="container">
+$stats_result = mysqli_query($conn, $stats_sql);
+$total_tickets_sold = 0;
+$total_revenue = 0;
 
-            <div class="row gy-4">
+if ($stats_result && mysqli_num_rows($stats_result) > 0) {
+    $stats_row = mysqli_fetch_assoc($stats_result);
+    $total_tickets_sold = $stats_row['total_tickets_sold'];
+    $total_revenue = $stats_row['total_revenue'];
+}
+?>
 
-                <div class="col-lg-3 col-md-6 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                    <div class="team-member">
-                        <div class="member-img">
-                            <!-- Check if the image is loading -->
-                            <img src="../assets/img/event/ashes.jpg" class="img-fluid" alt="Ashes Band Event">
-                        </div>
-                        <div class="member-info">
-                            <h4>Ashes Band</h4>
-                            <p>The band Ashes is known for its unique style and powerful lyrics that resonate deeply with fans, making them a standout act in the music scene.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                    <div class="team-member">
-                        <div class="member-img">
-                            <!-- Check if the image is loading -->
-                            <img src="../assets/img/event/convention.jpg" class="img-fluid" alt="Era Convention Hall">
-                        </div>
-                        <div class="member-info">
-                            <h4>Era Convention Hall</h4>
-                            <p>Welcome to Era Convention Hall, the perfect venue for your special events, conferences, and gatherings.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                    <div class="team-member">
-                        <div class="member-img">
-                            <!-- Check if the image is loading -->
-                            <img src="../assets/img/event/criket.jpg" class="img-fluid" alt="Cricket Tournament Booking">
-                        </div>
-                        <div class="member-info">
-                            <h4>Cricket Tournament Booking</h4>
-                            <p>Welcome to Cricket Tournament, where the thrill of cricket meets the excitement of competition! Whether you are a player, a team manager, or a passionate fan, this event offers an unforgettable experience filled with action-packed matches and unforgettable moments.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 d-flex align-items-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                    <div class="team-member">
-                        <div class="member-img">
-                            <!-- Check if the image is loading -->
-                            <img src="../assets/img/event/footbal.jpg" class="img-fluid" alt="Football Tournament Booking">
-                        </div>
-                        <div class="member-info">
-                            <h4>Football Tournament Booking</h4>
-                            <p>Join us at the Football Tournament for an action-packed sporting experience! Whether you're a player or a fan, this tournament promises high-energy matches and a competitive atmosphere.</p>
-                        </div>
-                    </div>
-                </div>
-
+<div class="container mt-5">
+   <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="alert alert-info text-center">
+                <h5>Total Tickets Sold</h5>
+                <p class="h4"><?php echo $total_tickets_sold; ?></p>
             </div>
         </div>
-   
-
-    </section>
-
-    <?php
-    include('footer.php');
-    ?>
-
+        <div class="col-md-6">
+            <div class="alert alert-success text-center">
+                <h5>Total Sales</h5>
+                <p class="h4">$<?php echo number_format($total_revenue, 2); ?></p>
+            </div>
+        </div>
+    </div>
+</div>
+<?php include('footer.php'); ?>
 </body>
-
 </html>
