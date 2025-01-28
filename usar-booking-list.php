@@ -36,13 +36,16 @@ if (isset($_GET['action']) && is_numeric($_GET['action'])) {
 }
 
 // Fetch bookings for the logged-in user
-$sql = "SELECT bookings.id AS booking_id, 
+$sql =
+    "SELECT bookings.id AS booking_id,
                events.event_title, 
                events.event_date, 
                events.price, 
-               bookings.status
+               bookings.status,
+               user.name AS user_name
         FROM bookings 
         JOIN events ON bookings.event_id = events.id
+        JOIN user ON bookings.user_id = userid
         WHERE bookings.user_id = ?
         ORDER BY bookings.booking_date DESC";
 
@@ -141,6 +144,7 @@ $result = $stmt->get_result();
         <thead>
             <tr>
                 <th>SL</th>
+                <th>User Name</th>
                 <th>Event Title</th>
                 <th>Event Date</th>
                 <th>Price</th>
@@ -155,6 +159,7 @@ $result = $stmt->get_result();
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>
                             <td>{$sl}</td>
+                            <td>{$row['user_name']}</td>
                             <td>{$row['event_title']}</td>
                             <td>{$row['event_date']}</td>
                             <td>{$row['price']}</td>
@@ -172,7 +177,7 @@ $result = $stmt->get_result();
                     $sl++;
                 }
             } else {
-                echo "<tr><td colspan='6'>No bookings found.</td></tr>";
+                echo "<tr><td colspan='7'>No bookings found.</td></tr>";
             }
             ?>
         </tbody>

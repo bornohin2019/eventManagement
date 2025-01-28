@@ -10,20 +10,17 @@ $user_id = isset($_SESSION['uid']) ? $_SESSION['uid'] : null;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>event management system</title>
+    <title>Event Management System</title>
 </head>
 
 <body>
-
-
-
-    <sectio id="team" class="team section light-background">
+    <section id="team" class="team section light-background">
 
         <!-- Section Title -->
         <div class="container section-title aos-init aos-animate" data-aos="fade-up">
             <br>
-            <h2>Latest Events</h2>
-            <p><span>New Events</span> <span class="description-title"></span></p>
+            <p><span>Welcome to the Event Management System!
+                    "Plan, Book, and Manage Events with Us!"</span></p>
         </div><!-- End Section Title -->
 
         <div class="container">
@@ -39,11 +36,11 @@ $user_id = isset($_SESSION['uid']) ? $_SESSION['uid'] : null;
                         <div class="member-info">
                             <h4>Ashes Band</h4>
                             <p>The band Ashes is known for its unique style and powerful lyrics that resonate deeply with fans, making them a standout act in the music scene.</p>
-                           <?php 
-                                if(!$user_id) {
-                                    // Show button only if user is not logged in
-                                    echo '<a href="register.php"><button>Book Now</button></a>';
-                                }
+                            <?php
+                            if (!$user_id) {
+                                // Show button only if user is not logged in
+                                echo '<a href="register.php"><button>Book Now</button></a>';
+                            }
                             ?>
                         </div>
                     </div>
@@ -57,11 +54,11 @@ $user_id = isset($_SESSION['uid']) ? $_SESSION['uid'] : null;
                         <div class="member-info">
                             <h4>Era Convention Hall</h4>
                             <p>Welcome to Era Convention Hall, the perfect venue for your special events, conferences, and gatherings.</p>
-                            <?php 
-                                if(!$user_id) {
-                                    // Show button only if user is not logged in
-                                    echo '<a href="register.php"><button>Book Now</button></a>';
-                                }
+                            <?php
+                            if (!$user_id) {
+                                // Show button only if user is not logged in
+                                echo '<a href="register.php"><button>Book Now</button></a>';
+                            }
                             ?>
                         </div>
                     </div>
@@ -75,11 +72,11 @@ $user_id = isset($_SESSION['uid']) ? $_SESSION['uid'] : null;
                         <div class="member-info">
                             <h4>Cricket Tournament Booking</h4>
                             <p>Welcome to Cricket Tournament, where the thrill of cricket meets the excitement of competition! Whether you are a player, a team manager, or a passionate fan, this event offers an unforgettable experience filled with action-packed matches and unforgettable moments.</p>
-                            <?php 
-                                if(!$user_id) {
-                                    // Show button only if user is not logged in
-                                    echo '<a href="register.php"><button>Book Now</button></a>';
-                                }
+                            <?php
+                            if (!$user_id) {
+                                // Show button only if user is not logged in
+                                echo '<a href="register.php"><button>Book Now</button></a>';
+                            }
                             ?>
                         </div>
                     </div>
@@ -93,11 +90,11 @@ $user_id = isset($_SESSION['uid']) ? $_SESSION['uid'] : null;
                         <div class="member-info">
                             <h4>Football Tournament Booking</h4>
                             <p>Join us at the Football Tournament for an action-packed sporting experience! Whether you are a player or a fan, this tournament promises high-energy matches and a competitive atmosphere.</p>
-                            <?php 
-                                if(!$user_id) {
-                                    // Show button only if user is not logged in
-                                    echo '<a href="register.php"><button>Book Now</button></a>';
-                                }
+                            <?php
+                            if (!$user_id) {
+                                // Show button only if user is not logged in
+                                echo '<a href="register.php"><button>Book Now</button></a>';
+                            }
                             ?>
                         </div>
                     </div>
@@ -107,10 +104,10 @@ $user_id = isset($_SESSION['uid']) ? $_SESSION['uid'] : null;
             </div>
         </div>
 
-        </section>
-        <?php
-        include('footer.php');
-        ?>
+    </section>
+    <?php
+    include('footer.php');
+    ?>
 </body>
 
 </html>

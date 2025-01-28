@@ -18,15 +18,13 @@
 <link href="../assets/css/main.css" rel="stylesheet">
 
 <!-- navbar -->
-
 <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-  <div class="branding d-flex align-items-cente">
+  <div class="branding d-flex align-items-center">
 
     <div class="container position-relative d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <span class="sitename"><a href="dashboard.php">Event Management System</a></span>
+      <a href="dashboard.php" class="logo d-flex align-items-center">
+        <!-- Logo Image -->
+        <img src="../assets/img/logo.png" alt="Logo" style="max-height: 50px; margin-right: 10px;">
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -35,12 +33,8 @@
           <li><a href="event.php">Add Event</a></li>
           <li><a href="event-list.php">Event List</a></li>
           <li><a href="booking-list.php">Booking List</a></li>
-
           <li><a href="booking.php">Booking</a></li>
-           <li><a href="revenue.php">Revenue</a></li>
           <li><a href="logout.php">Logout</a></li>
-
-
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>

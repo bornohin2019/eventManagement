@@ -21,8 +21,8 @@
 <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
     <div class="branding d-flex align-items-center">
         <div class="container position-relative d-flex align-items-center justify-content-between">
-            <a href="index.html" class="logo d-flex align-items-center">
-                <span class="sitename"><a href="main.php">Event Management System</a></span>
+            <a href="main.php" class="logo d-flex align-items-center">
+                <img src="assets/img/logo.png" alt="Logo" style="max-height: 50px; margin-right: 10px;">
             </a>
 
             <nav id="navmenu" class="navmenu">
@@ -37,13 +37,11 @@
                         if ($type == 1) { // Admin Role
                             echo '
                                 <li><a href="package.php">Package</a></li>
-                                <li><a href="venue.php">Venue</a></li>
                                 <li><a href="logout.php">Logout</a></li>
                             ';
                         } elseif ($type == 2) { // User Role
                             echo '
                                 <li><a href="package.php">Package</a></li>
-                                <li><a href="venue.php">Venue</a></li>
                                 <li><a href="booking.php">Booking</a></li>
                                 <li><a href="usar-booking-list.php">Booking Status</a></li>
                                 <li><a href="logout.php">Logout</a></li>

@@ -10,7 +10,7 @@ include('header.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event List</title>
-   
+
 </head>
 
 <body>
@@ -26,7 +26,7 @@ include('header.php');
         <table class="table table-bordered table-hover">
             <thead class="table-dark">
                 <tr>
-                    <th>#</th>
+                    <th>SL</th>
                     <th>Event Title</th>
                     <th>Date</th>
                     <th>Time</th>
