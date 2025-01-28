@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2025 at 09:01 PM
+-- Generation Time: Jan 28, 2025 at 08:20 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,15 +40,19 @@ CREATE TABLE `bookings` (
 --
 
 INSERT INTO `bookings` (`id`, `user_id`, `event_id`, `booking_date`, `status`) VALUES
-(8, 3, 5, '2025-01-27 03:27:01', 'Cancelled'),
+(8, 3, 5, '2025-01-27 03:27:01', 'Confirmed'),
 (10, 7, 6, '2025-01-27 07:12:59', 'Cancelled'),
-(13, 7, 7, '2025-01-27 07:34:48', 'Confirmed'),
+(13, 7, 7, '2025-01-27 07:34:48', 'Cancelled'),
 (14, 7, 5, '2025-01-27 07:34:50', 'Confirmed'),
 (15, 7, 8, '2025-01-27 07:34:54', 'Confirmed'),
 (16, 2, 6, '2025-01-27 13:47:14', 'Confirmed'),
-(17, 6, 7, '2025-01-27 13:48:07', 'Cancelled'),
-(18, 8, 5, '2025-01-27 16:32:47', NULL),
-(19, 8, 6, '2025-01-27 16:32:49', 'Confirmed');
+(17, 6, 7, '2025-01-27 13:48:07', 'Confirmed'),
+(18, 8, 5, '2025-01-27 16:32:47', 'Confirmed'),
+(19, 8, 6, '2025-01-27 16:32:49', 'Confirmed'),
+(20, 3, 7, '2025-01-28 03:27:35', 'Cancelled'),
+(21, 3, 6, '2025-01-28 03:27:37', 'Confirmed'),
+(22, 4, 7, '2025-01-28 04:51:22', NULL),
+(23, 4, 6, '2025-01-28 04:51:29', 'Cancelled');
 
 -- --------------------------------------------------------
 
@@ -124,7 +128,15 @@ INSERT INTO `payment` (`id`, `amount`, `eventid`, `userid`) VALUES
 (26, 1350, 7, 7),
 (27, 900, 6, 2),
 (28, 1350, 7, 6),
-(29, 900, 6, 8);
+(29, 900, 6, 8),
+(30, 900, 6, 3),
+(31, 1350, 7, 3),
+(32, 900, 6, 8),
+(33, 700, 5, 8),
+(34, 1350, 7, 6),
+(35, 900, 6, 7),
+(36, 700, 5, 3),
+(37, 900, 6, 4);
 
 -- --------------------------------------------------------
 
@@ -216,7 +228,7 @@ ALTER TABLE `venue`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `events`
@@ -234,7 +246,7 @@ ALTER TABLE `package`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `user`
