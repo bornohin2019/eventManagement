@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2025 at 09:28 PM
+-- Generation Time: Jan 29, 2025 at 07:23 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,7 +32,7 @@ CREATE TABLE `bookings` (
   `user_id` int(11) NOT NULL,
   `event_id` int(11) NOT NULL,
   `booking_date` timestamp NOT NULL DEFAULT current_timestamp(),
-  `status` varchar(255) DEFAULT NULL
+  `status` varchar(255) DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `bookings` (
 
 INSERT INTO `bookings` (`id`, `user_id`, `event_id`, `booking_date`, `status`) VALUES
 (8, 3, 5, '2025-01-27 03:27:01', 'Confirmed'),
-(10, 7, 6, '2025-01-27 07:12:59', 'Cancelled'),
+(10, 7, 6, '2025-01-27 07:12:59', 'Confirmed'),
 (13, 7, 7, '2025-01-27 07:34:48', 'Confirmed'),
 (14, 7, 5, '2025-01-27 07:34:50', 'Confirmed'),
 (15, 7, 8, '2025-01-27 07:34:54', 'Confirmed'),
@@ -49,10 +49,17 @@ INSERT INTO `bookings` (`id`, `user_id`, `event_id`, `booking_date`, `status`) V
 (17, 6, 7, '2025-01-27 13:48:07', 'Confirmed'),
 (18, 8, 5, '2025-01-27 16:32:47', 'Confirmed'),
 (19, 8, 6, '2025-01-27 16:32:49', 'Confirmed'),
-(20, 3, 7, '2025-01-28 03:27:35', 'Cancelled'),
+(20, 3, 7, '2025-01-28 03:27:35', 'Confirmed'),
 (21, 3, 6, '2025-01-28 03:27:37', 'Confirmed'),
 (22, 4, 7, '2025-01-28 04:51:22', 'Confirmed'),
-(23, 4, 6, '2025-01-28 04:51:29', 'Confirmed');
+(23, 4, 6, '2025-01-28 04:51:29', 'Confirmed'),
+(24, 9, 7, '2025-01-29 03:23:56', 'Confirmed'),
+(25, 9, 6, '2025-01-29 03:24:01', 'Confirmed'),
+(26, 9, 5, '2025-01-29 03:24:03', 'Confirmed'),
+(27, 10, 5, '2025-01-29 04:53:19', 'Confirmed'),
+(28, 10, 7, '2025-01-29 04:55:17', 'Confirmed'),
+(29, 10, 10, '2025-01-29 05:37:28', 'pending'),
+(30, 12, 9, '2025-01-29 06:06:47', 'Confirmed');
 
 -- --------------------------------------------------------
 
@@ -81,7 +88,7 @@ INSERT INTO `events` (`id`, `event_title`, `event_date`, `event_time`, `event_lo
 (6, 'Era Convention Hall', '2025-01-17', '18:00:00', 'Dhanmondi-4, Dhaka', 'Era Convention Hall Booking Description:\r\n\r\nWelcome to Era Convention Hall, the perfect venue for your special events, conferences, and gatherings. Our state-of-the-art facility offers a spacious and versatile environment for all types of occasions, whether it’s a wedding, corporate meeting, seminar, or a community event.\r\n\r\nVenue Features:\r\nCapacity: Accommodates up to 500 guests comfortably\r\nModern Audio-Visual Equipment: Equipped with high-quality sound systems, projectors, and screens\r\nAmbiance: Elegant and contemporary design with customizable lighting\r\nCatering: On-site catering services offering a wide range of menus to suit your needs\r\nParking: Ample parking space for guests\r\nAccessibility: Wheelchair accessible, with easy access for all guests\r\nBooking Information:\r\nLocation: [Address of the Era Convention Hall]\r\nAvailable for: Weddings, Corporate Events, Conferences, Seminars, Parties, and More!\r\nBooking Hours: Available from [Start Time] to [End Time]\r\nPricing: Prices vary depending on the event type and duration. Please contact us for customized quotes.\r\nSpecial Offers: Discounts for early bookings or off-season events. Contact for details.\r\nTo book your event at Era Convention Hall, simply fill out the booking form below or contact our customer service team at [Phone Number] or [Email Address]. We look forward to making your event an unforgettable experience!\r\nContact: 01763131342', 900.00, 'convention.jpg', '2025-01-13 07:15:41'),
 (7, 'Cricket Tournament Booking', '2025-01-29', '15:00:00', 'Gaibandha Stadium', 'Cricket Tournament Booking Description:\r\nWelcome to Cricket Tournament, where the thrill of cricket meets the excitement of competition! Whether you are a player, a team manager, or a passionate fan, this event offers an unforgettable experience filled with action-packed matches and unforgettable moments.\r\n\r\nEvent Features:\r\nFormat: [T20 / ODI / Test Match] Tournament\r\nTeams: [Number of teams] competing for the championship title\r\nVenue: [Venue Name & Address]\r\nDate & Time: [Start Date] to [End Date], [Event Start Time]\r\nCategory: [Men\'s / Women\'s / Mixed] teams\r\nEntry Fee: [Entry Fee Amount] per team (includes all event services)\r\nPrize Pool: [Prize Amount] for the winning team and additional prizes for Best Player, Best Bowler, etc', 1350.00, 'criket.jpg', '2025-01-13 07:46:51'),
 (8, 'Football Tournament Booking', '2025-01-27', '14:00:00', 'Bogra Chandu Stadium', 'Join us at the Football Tournament for an action-packed sporting experience! Whether you\'re a player or a fan, this tournament promises high-energy matches and a competitive atmosphere. Get ready to witness incredible talent, teamwork, and sportsmanship on the field.\r\n\r\nEvent Features:\r\nTournament Format: [Knockout / Round Robin / League] Style\r\nTeams: [Number of teams] competing for the championship trophy\r\nVenue: [Venue Name & Address] – Equipped with top-class football facilities\r\nDate & Time: [Start Date] to [End Date], [Event Start Time]\r\nCategories: [Men\'s / Women\'s / Junior / Mixed] teams\r\nEntry Fee: [Entry Fee Amount] per team (includes all event-related services)\r\nPrize Pool: [Prize Amount] for the winning team, along with awards for Best Player, Best Goalkeeper, etc', 1200.00, 'footbal.jpg', '2025-01-13 07:48:41'),
-(9, 'Pop Music', '2025-02-07', '16:30:00', 'Uttora, Dhaka-1200', '\r\nPop music is a genre of music that is popular and widely enjoyed. It is known for its catchy melodies, simple and easy-to-understand lyrics, and upbeat rhythms. Pop songs are often designed to be easy to sing along to and are usually characterized by a strong, repetitive chorus. The music typically uses a mix of instruments like guitars, keyboards, drums, and electronic sounds. Pop music is loved by people of all ages and is played on the radio, in movies, and on streaming platforms around the world.', 0.00, 'popMusic.jpg', '2025-01-28 20:21:34');
+(9, 'Pop music', '2025-01-31', '20:00:00', 'Dhaka', 'Pop music is a mainstream genre known for its catchy melodies, simple lyrics, and strong rhythms. It is designed to appeal to a wide audience and often features repetitive hooks and upbeat production. Pop music blends elements from various styles like rock, dance, and electronic music, evolving with trends over time.', 700.00, 'popMusic.jpg', '2025-01-29 05:02:51');
 
 -- --------------------------------------------------------
 
@@ -138,12 +145,17 @@ INSERT INTO `payment` (`id`, `amount`, `eventid`, `userid`) VALUES
 (35, 900, 6, 7),
 (36, 700, 5, 3),
 (37, 900, 6, 4),
-(38, 900, 6, 4),
-(39, 1350, 7, 4),
-(40, 900, 6, 8),
-(41, 700, 5, 8),
-(42, 1350, 7, 7),
-(43, 900, 6, 7);
+(38, 700, 5, 9),
+(39, 900, 6, 9),
+(40, 1350, 7, 10),
+(41, 700, 5, 10),
+(42, 900, 6, 4),
+(43, 1350, 7, 9),
+(44, 1350, 7, 4),
+(45, 900, 6, 7),
+(46, 1350, 7, 7),
+(47, 1350, 7, 3),
+(48, 700, 9, 12);
 
 -- --------------------------------------------------------
 
@@ -172,7 +184,11 @@ INSERT INTO `user` (`userid`, `name`, `contact`, `email`, `password`, `roleid`) 
 (5, 'Rakib', '01766661222', 'rakib@gmail.com', '123', 2),
 (6, 'Badhon', '017852852852', 'badhon@gmail.com', '123', 2),
 (7, 'Galib Hasan', '0185252523', 'g@gmail.com', '123', 2),
-(8, 'bornohin', '01985852858', 'b@gmail.com', '123', 2);
+(8, 'bornohin', '01985852858', 'b@gmail.com', '123', 2),
+(9, 'Mostafiz Rahman', '01685285236', 'm@gmail.com', '123', 2),
+(10, 'Alamin Rahman', '01863639632', 'a@gmail.com', '123', 2),
+(11, 'Badhon Sheikh', '01763699625', 'b@gmail.com', '123', 2),
+(12, 'Kabir Khan', '01706943944', 'kabir@gmail.com', '123', 2);
 
 -- --------------------------------------------------------
 
@@ -235,13 +251,13 @@ ALTER TABLE `venue`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `package`
@@ -253,13 +269,13 @@ ALTER TABLE `package`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `venue`
