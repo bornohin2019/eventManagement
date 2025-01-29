@@ -43,6 +43,7 @@
                             echo '
                                 <li><a href="package.php">Package</a></li>
                                 <li><a href="booking.php">Booking</a></li>
+                                <li><a href="event-list.php">Event List</a></li>
                                 <li><a href="usar-booking-list.php">Booking Status</a></li>
                                 <li><a href="logout.php">Logout</a></li>
                             ';
