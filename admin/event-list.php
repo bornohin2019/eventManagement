@@ -19,7 +19,7 @@ include('header.php');
 
         <!-- Add New Event Button -->
         <div class="text-end mb-3">
-            <a href="add-event.php" class="btn btn-success">Add New Event</a>
+            <a href="event.php" class="btn btn-success">Add New Event</a>
         </div>
 
         <!-- Event Table -->
